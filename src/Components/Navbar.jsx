@@ -1,15 +1,14 @@
 import React from 'react'
+import logo from '../assets/Logo.png';
 
 const Navbar = () => {
   return (
     <nav className="navbar is-primary" role="navigation" aria-label="main navigation">
-    <div className="container"> {/* Wrap your navbar content with a container */}
+    <div className="container">
       <div className="navbar-brand">
-        <a className="navbar-item" href="https://bulma.io">
-          <svg width="640" height="160" viewBox="0 0 640 160" fill="none" xmlns="http://www.w3.org/2000/svg">
-            {/* Your SVG content */}
-          </svg>
-        </a>
+      <a className="navbar-item" href="https://bulma.io">
+            <img src={logo} alt="Logo" style={{ width: '40px', height: '200px' }} /> 
+          </a>
 
         <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
           <span aria-hidden="true"></span>
@@ -34,7 +33,7 @@ const Navbar = () => {
               More
             </a>
 
-            <div className="navbar-dropdown is-boxed">
+            <div className="navbar-dropdown is-boxed custom-dropdown">
               <div className="container has-background-grey-light">
                 <a className="navbar-item">
                   About
