@@ -10,6 +10,7 @@ const Navbar = () => {
   };
 
   return (
+    <div>
     <nav className="navbar is-primary" role="navigation" aria-label="main navigation">
       <div className="container">
         <div className="navbar-brand">
@@ -74,17 +75,57 @@ const Navbar = () => {
           </div>
         </div>
       </div>
-
-      {showHomeBackground && (
-        <div style={{ position: 'fixed', top: '120px', right: 0, width: 'calc(100% - 300px)', height: 'calc(100% - 180px)', zIndex: -1 }}>
-          <img
-            src={HomeBackground}
-            alt="Home Background"
-            style={{ maxWidth: '100%', maxHeight: '100%', objectFit: 'cover' }}
-          />
-        </div>
-      )}
     </nav>
+
+    {showHomeBackground && (
+      <div className="home-background">
+        <img
+          src={HomeBackground}
+          alt="Home Background"
+          className="home-image"
+        />
+        <div className="home-content">
+          <div className="container" style={{ maxHeight: '70vh', overflowY: 'auto' }}>
+            <h2 className="title is-4">Welcome to the Kenya Institute Of Mass Communication Student Result Management System</h2>
+            <p>We're thrilled to have you here. Whether you're a student, teacher, or administrator, this platform is designed to make managing academic progress smooth and efficient.</p>
+            <p>Stay updated on your latest grades, exam schedules, and important announcements. Your success is our priority, and this system is here to support you every step of the way.</p>
+            <p>Let's embark on this journey together towards excellence. Happy learning!</p>
+          </div>
+        </div>
+      </div>
+    )}
+
+    <style jsx>{`
+      .home-background {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        z-index: -1;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+
+      .home-image {
+        width: 50%;
+        height: 50%;
+        object-fit: cover;
+      }
+
+      .home-content {
+        background-color: rgba(255, 255, 255, 0.9);
+        padding: 20px;
+        max-width: 80%;
+        text-align: center;
+        border-radius: 5px;
+        overflow-y: auto;
+        margin-top: 50px; /* Adjust this value as needed */
+      }
+    `}</style>
+  </div>
   )
 }
 
