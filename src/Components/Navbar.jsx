@@ -101,7 +101,17 @@ const Navbar = () => {
         <div className="about-content">
           <div className="container">
             <h2 className="title is-4">About Our Student Result Management System</h2>
-            <p>Welcome to the Kenya Institute Of Mass Communication Student Result Management System! This platform has been designed to streamline and enhance the management of academic data for our students, teachers, and administrators.</p>
+            <p>Welcome to the Kenya Institute Of Mass Communication Student Result 
+              Management System! This platform has been designed to streamline and 
+              enhance the management of academic data for our students, teachers, and administrators.</p>
+          </div>
+          <div>
+          <h2 className="title is-4">Our Mission</h2>
+          <p>
+          Our mission is to provide a robust and user-friendly platform that 
+          empowers students, teachers, and parents with transparent and real-time
+           access to academic progress and performance indicators.
+          </p>
           </div>
         </div>
       )}
