@@ -1,14 +1,20 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import logo from '../assets/Logo.png';
 import HomeBackground from '../assets/Homebackground.jpg';
 
 const Navbar = () => {
-  const [showHomeBackground, setShowHomeBackground] = useState(false);
+  const [showHomeContent, setShowHomeContent] = useState(false);
+  const [showAboutContent, setShowAboutContent] = useState(false);
 
-  useEffect(() => {
-    setShowHomeBackground(true);
-  }, []); 
+  const handleHomeClick = () => {
+    setShowHomeContent(true);
+    setShowAboutContent(false);
+  };
 
+  const handleAboutClick = () => {
+    setShowAboutContent(true);
+    setShowHomeContent(false);
+  };
 
   return (
     <div>
@@ -18,7 +24,6 @@ const Navbar = () => {
             <a className="navbar-item" href="https://bulma.io">
               <img src={logo} alt="Logo" style={{ width: '40px', height: '200px' }} />
             </a>
-
             <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
               <span aria-hidden="true"></span>
               <span aria-hidden="true"></span>
@@ -29,25 +34,22 @@ const Navbar = () => {
 
           <div id="navbarBasicExample" className="navbar-menu">
             <div className="navbar-start">
-              <a className="navbar-item">
+              <a className="navbar-item" onClick={handleHomeClick}>
                 Home
               </a>
-
               <a className="navbar-item">
                 Documentation
               </a>
-
               <div className="navbar-item has-dropdown is-hoverable">
                 <a className="navbar-link">
                   More
                 </a>
-
                 <div className="navbar-dropdown is-boxed custom-dropdown">
                   <div className="container has-background-grey-light">
-                    <a className="navbar-item">
+                    <a className="navbar-item" onClick={handleAboutClick}>
                       About
                     </a>
-                    <a className="navbar-item is-selected">
+                    <a className="navbar-item">
                       View results
                     </a>
                     <a className="navbar-item">
@@ -61,7 +63,6 @@ const Navbar = () => {
                 </div>
               </div>
             </div>
-
             <div className="navbar-end">
               <div className="navbar-item">
                 <div className="buttons">
@@ -78,58 +79,57 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {showHomeBackground && (
-        <div className="home-background">
+      {showHomeContent && (
+        <div className="home-content">
           <img
             src={HomeBackground}
             alt="Home Background"
             className="home-image"
           />
-          <div className="home-content">
-            <div className="container" style={{ maxHeight: '70vh', overflowY: 'auto' }}>
-              <h2 className="title is-4">Welcome to the Kenya Institute Of Mass Communication Student Result Management System</h2>
-              <p>We're thrilled to have you here. Whether you're a student, teacher, or administrator, 
-                this platform is designed to make managing academic progress smooth and efficient.</p>
-              <p>Stay updated on your latest grades, exam schedules, and important announcements.
-                Your success is our priority, and this system is here to support you every step of the way.</p>
-              <p>Let's embark on this journey together towards excellence. Happy learning!</p>
-            </div>
+          <div className="container" style={{ maxHeight: '70vh', overflowY: 'auto' }}>
+            <h2 className="title is-4">Welcome to the Kenya Institute Of Mass Communication Student Result Management System</h2>
+            <p>We're thrilled to have you here. Whether you're a student, teacher, or administrator, 
+              this platform is designed to make managing academic progress smooth and efficient.</p>
+            <p>Stay updated on your latest grades, exam schedules, and important announcements.
+              Your success is our priority, and this system is here to support you every step of the way.</p>
+            <p>Let's embark on this journey together towards excellence. Happy learning!</p>
+          </div>
+        </div>
+      )}
+
+      {showAboutContent && (
+        <div className="about-content">
+          <div className="container">
+            <h2 className="title is-4">About Our Student Result Management System</h2>
+            <p>Welcome to the Kenya Institute Of Mass Communication Student Result Management System! This platform has been designed to streamline and enhance the management of academic data for our students, teachers, and administrators.</p>
           </div>
         </div>
       )}
 
       <style jsx>{`
-        .home-background {
-          position: fixed;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          z-index: -1;
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          flex-direction: column;
-        }
-
-        .home-image {
-          width: 50%;
-          height: 50%;
-          object-fit: cover;
-        }
-
-        .home-content {
+        .home-content,
+        .about-content {
           background-color: rgba(255, 255, 255, 0.9);
           padding: 20px;
           max-width: 80%;
           text-align: center;
           border-radius: 5px;
           overflow-y: auto;
-          margin-top: 50px; /* Adjust this value as needed */
+          margin: 50px auto; /* Center the content */
+        }
+
+        .home-image {
+          width: 100%; /* Make the image fill the container */
+          height: auto;
+          margin-bottom: 20px; /* Add spacing below the image */
+        }
+
+        .about-content {
+          text-align: left;
         }
       `}</style>
     </div>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
