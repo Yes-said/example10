@@ -8,8 +8,10 @@ const Sidebar = () => {
           <p className="menu-label">Menu</p>
           <ul className="menu-list">
             <li><a href="#" style={{ textDecoration: 'none', color: '#666' }}>Dashboard</a></li>
+            <li><a href="#" style={{ textDecoration: 'none', color: '#666' }}>Courses</a></li>
             <li><a href="#" style={{ textDecoration: 'none', color: '#666' }}>Students</a></li>
-            <li><a href="#" style={{ textDecoration: 'none', color: '#666' }}>Results</a></li>
+            <li><a href="#" style={{ textDecoration: 'none', color: '#666' }}>View results</a></li>
+            <li><a href="#" style={{ textDecoration: 'none', color: '#666' }}>Raise concern</a></li>
             <li><a href="#" style={{ textDecoration: 'none', color: '#666' }}>Settings</a></li>
           </ul>
         </aside>
