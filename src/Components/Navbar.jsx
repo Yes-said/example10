@@ -7,15 +7,24 @@ import Sidebar from './Sidebar'; // Import Sidebar component
 const Navbar = () => {
   const [showHomeContent, setShowHomeContent] = useState(false);
   const [showAboutContent, setShowAboutContent] = useState(false);
+  const [showContactContent, setShowContactContent] = useState(false);
 
   const handleHomeClick = () => {
     setShowHomeContent(true);
     setShowAboutContent(false);
+    setShowContactContent(false);
   };
 
   const handleAboutClick = () => {
     setShowAboutContent(true);
     setShowHomeContent(false);
+    setShowContactContent(false);
+  };
+
+  const handleContactClick = () => {
+    setShowContactContent(true);
+    setShowHomeContent(false);
+    setShowAboutContent(false);
   };
 
   return (
@@ -59,7 +68,7 @@ const Navbar = () => {
                     <a className="navbar-item" onClick={handleAboutClick}>
                       About
                     </a>
-                    <a className="navbar-item">
+                    <a className="navbar-item" onClick={handleContactClick}>
                       Contact
                     </a>
                   </div>
@@ -82,7 +91,7 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Content area where Home and About content will be displayed */}
+      {/* Content area where Home, About, and Contact content will be displayed */}
       <div className="main-content">
         {showHomeContent && (
           <div className="home-content">
@@ -131,6 +140,22 @@ const Navbar = () => {
                 meeting the great demand in the ever-changing technology
                 industry.
               </p>
+            </div>
+          </div>
+        )}
+
+        {showContactContent && (
+          <div className="contact-content">
+            <div className="container">
+              <h2 className="title is-4">Contact Information</h2>
+              <p><strong>School Name:</strong> KENYA INSTITUTE OF MASS COMMUNICATION</p>
+              <p><strong>Address:</strong> Uholo road, Nairobi South B, Off Mombasa Road,</p>
+              <p> P.O BOX 42422-00100, Nairobi Kenya</p>
+              <p><strong>Phone:</strong> +254708 262 895</p>
+              <p><strong>Email:</strong> Info@kimc.ac.ke</p>
+              <p><strong>Website:</strong> www.kimc.ac.ke</p>
+              <p><strong>Technical Support:</strong> support@abchighschool.edu</p>
+              <p><strong>Office Hours:</strong> Monday to Friday, 8:00 AM - 4:00 PM</p>
             </div>
           </div>
         )}
