@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import logo from '../assets/Logo.png';
 import HomeBackground from '../assets/Homebackground.jpg';
-import GraduatesImage from '../assets/Graduates.png'; // Import the graduates image
+import GraduatesImage from '../assets/Graduates.png';
+import Sidebar from './Sidebar'; // Import Sidebar component
 
 const Navbar = () => {
   const [showHomeContent, setShowHomeContent] = useState(false);
@@ -25,14 +26,16 @@ const Navbar = () => {
         }
       `}</style>
 
+      <Sidebar /> {/* Render the Sidebar component */}
+
       <nav className="navbar is-primary" role="navigation" aria-label="main navigation">
         <div className="container">
           <div className="navbar-brand">
             <a className="navbar-item" href="https://bulma.io">
               <img src={logo} alt="Logo" style={{ width: '40px', height: '200px' }} />
             </a>
+            {/* Add a button to toggle sidebar visibility on smaller screens */}
             <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
-              <span aria-hidden="true"></span>
               <span aria-hidden="true"></span>
               <span aria-hidden="true"></span>
               <span aria-hidden="true"></span>
@@ -79,88 +82,69 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {showHomeContent && (
-        <div className="home-content">
-          <img
-            src={HomeBackground}
-            alt="Home Background"
-            className="home-image"
-          />
-          <div className="container" style={{ maxHeight: '70vh', overflowY: 'auto' }}>
-            <h2 className="title is-4">Welcome to the Kenya Institute Of Mass Communication Student Result Management System</h2>
-            <p>We're thrilled to have you here. Whether you're a student, teacher, or administrator, 
-              this platform is designed to make managing academic progress smooth and efficient.</p>
-            <p>Stay updated on your latest grades, exam schedules, and important announcements.
-              Your success is our priority, and this system is here to support you every step of the way.</p>
-            <p>Let's embark on this journey together towards excellence. Happy learning!</p>
+      {/* Content area where Home and About content will be displayed */}
+      <div className="main-content">
+        {showHomeContent && (
+          <div className="home-content">
+            <img
+              src={HomeBackground}
+              alt="Home Background"
+              className="home-image"
+            />
+            <div className="container" style={{ maxHeight: '70vh', overflowY: 'auto' }}>
+              <h2 className="title is-4">Welcome to the Kenya Institute Of Mass Communication Student Result Management System</h2>
+              <p>We're thrilled to have you here. Whether you're a student, teacher, or administrator, 
+                this platform is designed to make managing academic progress smooth and efficient.</p>
+              <p>Stay updated on your latest grades, exam schedules, and important announcements.
+                Your success is our priority, and this system is here to support you every step of the way.</p>
+              <p>Let's embark on this journey together towards excellence. Happy learning!</p>
+            </div>
           </div>
-        </div>
-      )}
+        )}
 
-      {showAboutContent && (
-        <div className="about-content">
-          <div className="container">
-            <h2 className="title is-4">About Our Student Result Management System</h2>
-            <p>Welcome to the Kenya Institute Of Mass Communication Student Result 
-              Management System! This platform has been designed to streamline and 
-              enhance the management of academic data for our students, teachers, and administrators.</p>
+        {showAboutContent && (
+          <div className="about-content">
+            <div className="container">
+              <h2 className="title is-4">About Our Student Result Management System</h2>
+              <p>Welcome to the Kenya Institute Of Mass Communication Student Result 
+                Management System! This platform has been designed to streamline and 
+                enhance the management of academic data for our students, teachers, and administrators.</p>
+            </div>
+            <div>
+              <img src={GraduatesImage} alt="Graduates" className="graduates-image" />
+              <h2 className="title is-4">Our Mission</h2>
+              <p>
+                Our mission is to provide a robust and user-friendly platform that 
+                empowers students, teachers, and parents with transparent and real-time
+                access to academic progress and performance indicators.
+              </p>
+            </div>
+            <div>
+              <h2 className="title is-4">About KIMC</h2>
+              <p>
+                The Kenya Institute of Mass Communication (KIMC) is a public
+                media training institution under the Ministry of Information,
+                Communications and Digital Economy. It was established in 1961
+                with a core mandate in media and communication training a
+                middle level for both public and private sector. It has 
+                strong emphasis on practical hands-on training aimed at
+                meeting the great demand in the ever-changing technology
+                industry.
+              </p>
+            </div>
           </div>
-          <div>
-            <img src={GraduatesImage} alt="Graduates" className="graduates-image" />
-            <h2 className="title is-4">Our Mission</h2>
-            <p>
-              Our mission is to provide a robust and user-friendly platform that 
-              empowers students, teachers, and parents with transparent and real-time
-              access to academic progress and performance indicators.
-            </p>
-          </div>
-          <div>
-            <h2 className="title is-4">About KIMC</h2>
-            <p>
-              The Kenya Institute of Mass Communication (KIMC) is a public
-              media training institution under the Ministry of Information,
-              Communications and Digital Economy. It was established in 1961
-              with a core mandate in media and communication training a
-              middle level for both public and private sector. It has 
-              strong emphasis on practical hands-on training aimed at
-              meeting the great demand in the ever-changing technology
-              industry.
-            </p>
-          </div>
-        </div>
-      )}
+        )}
+      </div>
 
       <style jsx>{`
-        .home-content,
-        .about-content {
-          background-color: rgba(255, 255, 255, 0.9);
+        .main-content {
+          margin-left: 300px; /* Adjust left margin to accommodate the sidebar width */
           padding: 20px;
-          max-width: 80%;
-          text-align: center;
-          border-radius: 5px;
-          overflow-y: auto;
-          margin: 50px auto; /* Center the content */
-        }
-
-        .home-image {
-          width: 100%; /* Make the image fill the container */
-          height: auto;
-          margin-bottom: 20px; /* Add spacing below the image */
-        }
-
-        .about-content {
-          text-align: left;
-        }
-
-        .graduates-image {
-          width: 100%; /* Make the image fill the container */
-          height: auto;
-          margin-bottom: 20px; /* Add spacing below the image */
         }
 
         @media (max-width: 768px) {
-          .graduates-image {
-            width: 80%; /* Adjust image width for smaller screens */
+          .main-content {
+            margin-left: 0; /* Reset margin for smaller screens */
           }
         }
       `}</style>
