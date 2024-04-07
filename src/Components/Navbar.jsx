@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import logo from '../assets/Logo.png';
 import HomeBackground from '../assets/Homebackground.jpg';
+import GraduatesImage from '../assets/Graduates.png'; // Import the graduates image
 
 const Navbar = () => {
   const [showHomeContent, setShowHomeContent] = useState(false);
@@ -18,6 +19,12 @@ const Navbar = () => {
 
   return (
     <div>
+      <style jsx global>{`
+        body {
+          background-color: #f5f5f5; /* Set the background color to grey */
+        }
+      `}</style>
+
       <nav className="navbar is-primary" role="navigation" aria-label="main navigation">
         <div className="container">
           <div className="navbar-brand">
@@ -99,12 +106,26 @@ const Navbar = () => {
               enhance the management of academic data for our students, teachers, and administrators.</p>
           </div>
           <div>
-          <h2 className="title is-4">Our Mission</h2>
-          <p>
-          Our mission is to provide a robust and user-friendly platform that 
-          empowers students, teachers, and parents with transparent and real-time
-           access to academic progress and performance indicators.
-          </p>
+            <img src={GraduatesImage} alt="Graduates" className="graduates-image" />
+            <h2 className="title is-4">Our Mission</h2>
+            <p>
+              Our mission is to provide a robust and user-friendly platform that 
+              empowers students, teachers, and parents with transparent and real-time
+              access to academic progress and performance indicators.
+            </p>
+          </div>
+          <div>
+            <h2 className="title is-4">About KIMC</h2>
+            <p>
+              The Kenya Institute of Mass Communication (KIMC) is a public
+              media training institution under the Ministry of Information,
+              Communications and Digital Economy. It was established in 1961
+              with a core mandate in media and communication training a
+              middle level for both public and private sector. It has 
+              strong emphasis on practical hands-on training aimed at
+              meeting the great demand in the ever-changing technology
+              industry.
+            </p>
           </div>
         </div>
       )}
@@ -129,6 +150,18 @@ const Navbar = () => {
 
         .about-content {
           text-align: left;
+        }
+
+        .graduates-image {
+          width: 100%; /* Make the image fill the container */
+          height: auto;
+          margin-bottom: 20px; /* Add spacing below the image */
+        }
+
+        @media (max-width: 768px) {
+          .graduates-image {
+            width: 80%; /* Adjust image width for smaller screens */
+          }
         }
       `}</style>
     </div>
