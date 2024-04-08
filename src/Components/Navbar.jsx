@@ -169,7 +169,7 @@ const Navbar = () => {
                 <div className="field">
                   <label className="label">Course</label>
                   <div className="control">
-                    <input className="input" type="text" placeholder="Enter your course enrolled" />
+                    <input className="input" type="text" placeholder="Enter course enrolled" />
                   </div>
                 </div>
                 <div className="field">
