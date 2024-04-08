@@ -2,37 +2,37 @@ import React, { useState } from 'react';
 import logo from '../assets/Logo.png';
 import HomeBackground from '../assets/Homebackground.jpg';
 import GraduatesImage from '../assets/Graduates.png';
-import Sidebar from './Sidebar'; // Import Sidebar component
+import Sidebar from './Sidebar';
 
 const Navbar = () => {
   const [showHomeContent, setShowHomeContent] = useState(false);
   const [showAboutContent, setShowAboutContent] = useState(false);
   const [showContactContent, setShowContactContent] = useState(false);
-  const [showSignUpModal, setShowSignUpModal] = useState(false); // State for sign-up modal
+  const [showSignUpModal, setShowSignUpModal] = useState(false); 
 
   const handleHomeClick = () => {
     setShowHomeContent(true);
     setShowAboutContent(false);
     setShowContactContent(false);
-    setShowSignUpModal(false); // Close sign-up modal when navigating to Home
+    setShowSignUpModal(false);
   };
 
   const handleAboutClick = () => {
     setShowAboutContent(true);
     setShowHomeContent(false);
     setShowContactContent(false);
-    setShowSignUpModal(false); // Close sign-up modal when navigating to About
+    setShowSignUpModal(false); 
   };
 
   const handleContactClick = () => {
     setShowContactContent(true);
     setShowHomeContent(false);
     setShowAboutContent(false);
-    setShowSignUpModal(false); // Close sign-up modal when navigating to Contact
+    setShowSignUpModal(false); 
   };
 
   const handleSignUpClick = () => {
-    setShowSignUpModal(true); // Open sign-up modal
+    setShowSignUpModal(true); 
   };
 
   return (
@@ -43,15 +43,14 @@ const Navbar = () => {
         }
       `}</style>
 
-      <Sidebar /> {/* Render the Sidebar component */}
-
+      <Sidebar /> 
       <nav className="navbar is-primary" role="navigation" aria-label="main navigation">
         <div className="container">
           <div className="navbar-brand">
             <a className="navbar-item" href="https://bulma.io">
               <img src={logo} alt="Logo" style={{ width: '40px', height: '200px' }} />
             </a>
-            {/* Add a button to toggle sidebar visibility on smaller screens */}
+           
             <a role="button" className="navbar-burger" aria-label="menu" aria-expanded="false" data-target="navbarBasicExample">
               <span aria-hidden="true"></span>
               <span aria-hidden="true"></span>
@@ -96,9 +95,9 @@ const Navbar = () => {
         </div>
       </nav>
 
-      {/* Content area where Home, About, and Contact content will be displayed */}
+      
       <div className="main-content">
-        {/* Display Home content if showHomeContent is true */}
+      
         {showHomeContent && (
           <div className="home-content">
             <img src={HomeBackground} alt="Home Background" className="home-image" />
@@ -111,7 +110,7 @@ const Navbar = () => {
           </div>
         )}
 
-        {/* Display About content if showAboutContent is true */}
+       
         {showAboutContent && (
           <div className="about-content">
             <div className="container">
@@ -130,13 +129,14 @@ const Navbar = () => {
           </div>
         )}
 
-        {/* Display Contact content if showContactContent is true */}
+       
         {showContactContent && (
           <div className="contact-content">
             <div className="container">
               <h2 className="title is-4">Contact Information</h2>
               <p><strong>School Name:</strong> KENYA INSTITUTE OF MASS COMMUNICATION</p>
-              <p><strong>Address:</strong> Uholo road, Nairobi South B, Off Mombasa Road, P.O BOX 42422-00100, Nairobi Kenya</p>
+              <p><strong>Address:</strong> Uholo road, Nairobi South B, Off Mombasa Road,</p>
+              <p>P.O BOX 42422-00100, Nairobi Kenya</p>
               <p><strong>Phone:</strong> +254708 262 895</p>
               <p><strong>Email:</strong> Info@kimc.ac.ke</p>
               <p><strong>Website:</strong> www.kimc.ac.ke</p>
@@ -146,15 +146,14 @@ const Navbar = () => {
           </div>
         )}
 
-        {/* Sign-up modal */}
+       
         {showSignUpModal && (
           <div className="modal is-active">
             <div className="modal-background"></div>
             <div className="modal-content">
               <div className="box">
                 <h2 className="title is-4">Sign Up</h2>
-                {/* Add your sign-up form components here */}
-                {/* Example: */}
+                
                 <div className="field">
                   <label className="label">Name</label>
                   <div className="control">
@@ -182,12 +181,12 @@ const Navbar = () => {
                 <div className="field">
                   <label className="label">Password</label>
                   <div className="control">
-                    <input className="input" type="text" placeholder="Create your password" />
-                    <input className="input" type="text" placeholder="Confirm your password"/>
+                    <input className="input" type="text" placeholder="Create password" />
+                    <input className="input" type="text" placeholder="Confirm password"/>
                   </div>
                 </div>
 
-                {/* Add more fields as needed */}
+               
               </div>
             </div>
             <button className="modal-close is-large" aria-label="close" onClick={() => setShowSignUpModal(false)}></button>
